@@ -1,26 +1,30 @@
 clear all;
 imtool close all;
 imagesPath = pwd;
-imagesPath = strcat(imagesPath, '\db');
+imagesPath = strcat(imagesPath, '/db');
 
 IMSIZE = 82*115;
 NUM_IMAGES = 400;
 images = zeros(115, 82, 400);
 
 a='basu';
-for i = 1 : 100
+for i = 1 : 20
     for t = 1 : 4
-        filename = sprintf('%s\\image%d%c.jpg', imagesPath, i, a(t));
-        img = imread(filename);
-        images(:,:,(i - 1) * 4 + t) = img;
+        if i == 18 || i == 24||i == 25||i == 28
+           
+        else
+           filename = sprintf('%s/image%d%c.jpg', imagesPath, i, a(t));
+           img = imread(filename);
+           images(:,:,(i - 1) * 4 + t) = img; 
+        end       
     end
 end
-for i = 20:40
+for i = 1:10
     image = uint8(images(:,:,i));
     % median filter
     %image = medfilt2(image);
-    BW1 = edge(image,'log');
-    imtool((BW1));
+    BW3 = edge(image,'prewitt');
+    imtool((BW3));
 end
 % imtool(uint8(image));
 % BW1 = edge(image,'sobel');
