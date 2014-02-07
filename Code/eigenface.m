@@ -28,3 +28,15 @@ C = N * N';
 [eigenvectorMatrix,~] = eigs(C,3);
 
 showEigenimages(eigenvectorMatrix, IMROWS, IMCOLS);
+
+% [c1 c2 c3; c1 c2 c3; ...]
+projections = (eigenvectorMatrix' * imageMatrix)';
+% 0:3 == basu
+classVector = mod(1:NUM_IMAGES, 4);
+
+% unhappy
+classVector(classVector ~= 2) = -1;
+% happy
+classVector(classVector == 2) = 1;
+
+net = trainSVM(projections, classVector);
