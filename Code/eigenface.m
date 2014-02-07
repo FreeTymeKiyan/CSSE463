@@ -4,13 +4,13 @@ imagesPath = strcat(imagesPath, '/db');
 IMROWS = 115;
 IMCOLS = 82;
 
-NUM_PEOPLE = 10;
-NUM_EMOTIONS = 4;
+NUM_PEOPLE = ;
+NUM_EMOTIONS = 2;
 
 F = zeros(IMROWS * IMCOLS, NUM_PEOPLE * NUM_EMOTIONS);
 
 % Bored, Angry, Smile, sUrprised
-suffix = 'basu';
+suffix = 'as';
 for personNumber = 1 : NUM_PEOPLE
     for emotionNumber = 1 : NUM_EMOTIONS
         filename = sprintf('%s/image%d%c.jpg', ...
