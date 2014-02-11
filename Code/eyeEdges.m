@@ -6,21 +6,25 @@ dirList = dir(imagesPath);
 
 IMHEIGHT = 115;
 IMWIDTH = 82;
-IMSIZE = IMHEIGHT*IMWIDTH;
-NUM_IMAGES = 10;
+NUM_IMAGES = 2;
 
-images = zeros(IMHEIGHT, IMWIDTH, 3, NUM_IMAGES);
+images = zeros(IMHEIGHT*2, IMWIDTH*2, 3, NUM_IMAGES);
 images = uint8(images);
-landmarkMatrix = zeros(4, 4, NUM_IMAGES);
+landmarkMatrix = zeros(4, 2, NUM_IMAGES);
 
-for i = 3:size(dirList)
+for i = 3:NUM_IMAGES+2
       img = imread([imagesPath '\' dirList(i).name]);
       img = repmat(img, [1,1,3]);
-      images(:,:,:,i-2) = uint8(img);
-      figure; imshow(img);
-      %zoom(2);
+      img = imresize(img, 2);
+      figure (1), imshow(img);
+      hFig = figure(1); 
+      set(gcf,'PaperPositionMode','auto')
+      set(hFig, 'Position', [0 0 8*IMWIDTH 8*IMHEIGHT])
+      zoom on;
+     % zoom(2);     
       [x,y] = ginput(4);
       close;
+      landmarkMatrix(:,:,i-2) = [x,y];
       images(:,:,:,i-2) = paintLandmarks(img, x, y);
 end
 
