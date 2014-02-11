@@ -18,14 +18,13 @@ for i = 3:size(dirList)
     mouthImages(:,:,i-2) = img(58:114,:);
 end
 
-for i = 1:30
-    image = uint8(mouthImages(:,:,i));
-    % median filter
-    %image = medfilt2(image);
-    imtool((image));
-    BW1 = edge(image, 'canny');
-    %imtool((BW1));
-end
+% for i = 1:10
+%     image = uint8(images(:,:,i));
+%     % median filter
+%     %image = medfilt2(image);
+%     BW3 = edge(image,'prewitt');
+%     imtool((BW3));
+% end
 % imtool(uint8(image));
 % BW1 = edge(image,'sobel');
 % BW2 = edge(image,'canny');
