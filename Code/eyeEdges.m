@@ -1,12 +1,12 @@
 clear all;
 imtool close all;
 imagesPath = pwd;
-imagesPath = strcat(imagesPath, '/db/smilesAndNeutral');
+imagesPath = strcat(imagesPath, '/db/angry');
 dirList = dir(imagesPath);
 
 IMHEIGHT = 115;
 IMWIDTH = 82;
-NUM_IMAGES = 2;
+NUM_IMAGES = size(dirList);
 
 images = zeros(IMHEIGHT*2, IMWIDTH*2, 3, NUM_IMAGES);
 images = uint8(images);
