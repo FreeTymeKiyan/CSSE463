@@ -1,7 +1,7 @@
 clear all;
 imtool close all;
 imagesPath = pwd;
-imagesPath = strcat(imagesPath, '\db\smilesAndNeutral');
+imagesPath = strcat(imagesPath, '/db/smilesAndNeutral');
 dirList = dir(imagesPath);
 
 IMHEIGHT = 115;
@@ -12,8 +12,8 @@ images = zeros(IMHEIGHT*2, IMWIDTH*2, 3, NUM_IMAGES);
 images = uint8(images);
 landmarkMatrix = zeros(4, 2, NUM_IMAGES);
 
-for i = 3:NUM_IMAGES+2
-      img = imread([imagesPath '\' dirList(i).name]);
+for i = 3:NUM_IMAGES + 2
+      img = imread([imagesPath '/' dirList(i).name]);
       img = repmat(img, [1,1,3]);
       img = imresize(img, 2);
       figure (1), imshow(img);
@@ -21,7 +21,8 @@ for i = 3:NUM_IMAGES+2
       set(gcf,'PaperPositionMode','auto')
       set(hFig, 'Position', [0 0 8*IMWIDTH 8*IMHEIGHT])
       zoom on;
-     % zoom(2);     
+      % zoom(2);     
+      % first point left, clock-wise
       [x,y] = ginput(4);
       close;
       landmarkMatrix(:,:,i-2) = [x,y];
