@@ -2,25 +2,29 @@ clear all;
 imtool close all;
 imagesPath = pwd;
 imagesPath = strcat(imagesPath, '\db');
+dirList = dir(imagesPath);
 
-IMSIZE = 82*115;
+IMHEIGHT = 114;
+IMWIDTH = 82;
+IMSIZE = IMHEIGHT*IMWIDTH;
 NUM_IMAGES = 400;
-images = zeros(115, 82, 400);
 
-a='basu';
-for i = 1 : 100
-    for t = 1 : 4
-        filename = sprintf('%s\\image%d%c.jpg', imagesPath, i, a(t));
-        img = imread(filename);
-        images(:,:,(i - 1) * 4 + t) = img;
-    end
+eyeImages = zeros(IMHEIGHT/2, IMWIDTH, NUM_IMAGES);
+mouthImages = zeros(IMHEIGHT/2, IMWIDTH, NUM_IMAGES);
+
+for i = 3:size(dirList)
+    img = imread([imagesPath '\' dirList(i).name]);
+    eyeImages(:,:,i-2) = img(1:57,:);
+    mouthImages(:,:,i-2) = img(58:114,:);
 end
-for i = 20:40
-    image = uint8(images(:,:,i));
+
+for i = 1:30
+    image = uint8(mouthImages(:,:,i));
     % median filter
     %image = medfilt2(image);
-    BW1 = edge(image,'log');
-    imtool((BW1));
+    imtool((image));
+    BW1 = edge(image, 'canny');
+    %imtool((BW1));
 end
 % imtool(uint8(image));
 % BW1 = edge(image,'sobel');
