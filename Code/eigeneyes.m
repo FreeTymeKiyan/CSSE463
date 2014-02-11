@@ -13,7 +13,7 @@ classVector = zeros(NUM_IMAGES, 1);
 
 % Bored, Angry, Smile, sUrprised
 i = 1;
-files = D(4:end);
+files = D(4 : end);
 for index = 1:length(files);
         file = files(index);
         filename = file.name;
@@ -40,22 +40,15 @@ N = FTrain - avg;
 C = N * N';
 
 [eigenvectorMatrix,~] = eigs(C,10);
-
+% eigenvectorMatrix = eigs(C,10);
 % showEigenimages(eigenvectorMatrix, IMROWS, IMCOLS);
 
 % [c1 c2 c3; c1 c2 c3; ...]
 projections = (eigenvectorMatrix' * FTrain)';
-% 0:3 == basu
-% classVector = mod(1 : NUM_IMAGES, 4)';
-% 
-% % unhappy
-% classVector(classVector ~= 2) = -1;
-% % happy
-% classVector(classVector == 2) = 1;
 
 net = trainSVM(projections, classVector(1:50));
 
 testProjections = (eigenvectorMatrix' * FTest)';
-testOutput = svmfwd(net, testProjections);
-idealOutput = classVector(51:end);
+[testOutput, distances] = svmfwd(net, testProjections);
+idealOutput = classVector(51 : end);
 
