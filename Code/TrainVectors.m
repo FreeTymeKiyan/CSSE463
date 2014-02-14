@@ -19,7 +19,7 @@ net = trainSVM(trainSet, y);
 idealOutput = ones(29, 1);
 idealOutput(30 : 58) = -ones(29, 1);
 
-[testOutput distances] = svmfwd(net, testSet);
+[testOutput, distances] = svmfwd(net, testSet);
 
 accuracy = 0;
 for i = 1 : 58 

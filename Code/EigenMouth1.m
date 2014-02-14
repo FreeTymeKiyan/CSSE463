@@ -56,6 +56,13 @@ projections = (eigenvectorMatrix' * FTrain)';
 net = trainSVM(projections, classVector(1:100));
 
 testProjections = (eigenvectorMatrix' * FTest)';
-[testOutput distances] = svmfwd(net, testProjections);
+[testOutput, distances] = svmfwd(net, testProjections);
 idealOutput = classVector(101:end);
 
+accuracy = 0;
+for i = 1 : size(testOutput, 1) 
+    if idealOutput(i) == testOutput(i)
+        accuracy = accuracy + 1;
+    end 
+end
+accuracy = accuracy / size(testOutput, 1)
