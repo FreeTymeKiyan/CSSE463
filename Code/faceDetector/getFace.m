@@ -1,10 +1,10 @@
-imtool close all;
+function face = getFace(img);
 reqToolboxes = {'Computer Vision System Toolbox', 'Image Processing Toolbox'};
 if( ~checkToolboxes(reqToolboxes) )
  error('detectFaceParts requires: Computer Vision System Toolbox and Image Processing Toolbox. Please install these toolboxes.');
 end
 
-img = imread('/lena.png');
+% img = imread('/lena.png');
 detector = buildDetector();
 [bbox bbimg faces bbfaces] = detectFaceParts(detector,img,2);
 
@@ -15,22 +15,19 @@ detector = buildDetector();
 %       bbox(:,17:20) is bounding box for nose
 
 % figure;imshow(bbimg);
-mouth = getMouth(img, bbox);
-eyes = getEyes(img, bbox);
-imtool(mouth);
+x1 = bbox(:,1);
+x2 = bbox(:,1)+bbox(:,3);
+y1 = bbox(:,2);
+y2 = bbox(:,2)+bbox(:,4);
+face = img(y1:y2,x1:x2,:);
+imtool(face);
+% mouth = getMouth(img, bbox);
+% eyes = getEyes(img, bbox);
+% imtool(mouth);
+% imtool(eyes);
 
-[means mouth] = kmean(mouth, 10);
-imtool(mouth);
-
-mouth = rgb2gray(mouth);
-imtool(mouth);
-BW1 = edge(mouth, 'prewitt');
-BW2 = edge(mouth, 'canny');
-imtool(BW1);
-imtool(BW2);
 %end
 % figure;imshow(bbimg);
 % for i=1:size(bbfaces,1)
 %  figure;imshow(bbfaces{i});
 % end
-
