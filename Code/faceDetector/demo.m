@@ -4,10 +4,11 @@ if( ~checkToolboxes(reqToolboxes) )
  error('detectFaceParts requires: Computer Vision System Toolbox and Image Processing Toolbox. Please install these toolboxes.');
 end
 
-img = imread('/lena.png');
+img = imread('face.jpg');
 detector = buildDetector();
 [bbox bbimg faces bbfaces] = detectFaceParts(detector,img,2);
 
+bbox
 %bbox(:, 1: 4) is bounding box for face
 %       bbox(:, 5: 8) is bounding box for left eye
 %       bbox(:, 9:12) is bounding box for right eye
@@ -17,10 +18,13 @@ detector = buildDetector();
 % figure;imshow(bbimg);
 mouth = getMouth(img, bbox);
 eyes = getEyes(img, bbox);
+faces = getFace(img);
 imtool(mouth);
+imtool(eyes);
+imtool(faces);
 
-[means mouth] = kmean(mouth, 10);
-imtool(mouth);
+% [means mouth] = kmean(mouth, 10);
+% imtool(mouth);
 
 mouth = rgb2gray(mouth);
 imtool(mouth);
