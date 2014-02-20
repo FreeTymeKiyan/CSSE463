@@ -1,5 +1,5 @@
 function F = crop( img, top, bottom, left, right )
-%crop.m crop a region from an image
+% crop.m crop a region from an image matrix
 %   Author Yang Liu
 %   img:    the img matrix needs to be cropped
 %   top:    the top boundary
