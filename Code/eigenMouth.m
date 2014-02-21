@@ -41,7 +41,7 @@ C = N * N';
 
 [eigenvectorMatrix,~] = eigs(C,10);
 
-% showEigenimages(eigenvectorMatrix, IMROWS, IMCOLS);
+showEigenimages(eigenvectorMatrix, IMROWS, IMCOLS);
 
 % [c1 c2 c3; c1 c2 c3; ...]
 projections = (eigenvectorMatrix' * FTrain)';
