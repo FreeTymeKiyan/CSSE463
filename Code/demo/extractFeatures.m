@@ -1,6 +1,6 @@
 clc;
 clear all;
-close all;
+imtool close all;
 
 addpath('./mex');
 addpath('./faceDetector');

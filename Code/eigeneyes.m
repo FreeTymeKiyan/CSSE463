@@ -1,3 +1,4 @@
+addpath('./svm');
 imagesPath = pwd;
 subfolder = '/eyes/';
 
