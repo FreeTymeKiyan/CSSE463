@@ -9,7 +9,7 @@ function [ P, img ] = setLandmarks(P, mask, img, offsetX, offsetY)
     img(Y-2:Y+2, X-2:X+2,:) = 0;
     img(Y-2:Y+2, X-2:X+2,1) = 255;
     
-    P(end + 1, :) = [X, Y];
+    P(:, end + 1) = [X; Y];
     
     X = col(size(col,1))+offsetX;
     Y = row(size(row,1))+offsetY;
@@ -17,6 +17,6 @@ function [ P, img ] = setLandmarks(P, mask, img, offsetX, offsetY)
     img(Y-2:Y+2, X-2:X+2,:) = 0;
     img(Y-2:Y+2, X-2:X+2,1) = 255;
     
-    P(end + 1, :) = [X, Y];
+    P(:, end + 1) = [X; Y];
 end
 

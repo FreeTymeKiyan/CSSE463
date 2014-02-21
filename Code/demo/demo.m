@@ -1,5 +1,15 @@
 %% uncomment to run demo
-happySurprise('./demoImgs/normal1.jpg', './demoImgs/happy1.jpg');
+imtool close all;
+happySurprise('./demoImgs/normal6.jpg', './demoImgs/surprise6.jpg');
+pause();
+imtool close all;
+happySurprise('./demoImgs/normal6.jpg', './demoImgs/happy6.jpg');
+pause();
+imtool close all;
+happySurprise('./demoImgs/normal7.jpg', './demoImgs/surprise7.jpg');
+pause();
+imtool close all;
+happySurprise('./demoImgs/normal7.jpg', './demoImgs/happy7.jpg');
 pause();
 imtool close all;
 happySurprise('./demoImgs/normal2.jpg', './demoImgs/happy2.jpg');
@@ -12,4 +22,5 @@ happySurprise('./demoImgs/normal4.jpg', './demoImgs/surprise4.jpg');
 pause();
 imtool close all;
 happySurprise('./demoImgs/normal5.jpg', './demoImgs/happy5.jpg');
+pause();
 imtool close all;

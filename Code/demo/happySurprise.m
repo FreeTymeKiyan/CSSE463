@@ -1,7 +1,7 @@
 function [] = HappySurprise(name1, name2)
 
 addpath('./library/mex/');
-addpath('./library/faceDetector/');
+addpath('./library/finalLandmarksIsh/');
 % two input images
 stdImg = imread(name1);
 emotionImg = imread(name2);
