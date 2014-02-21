@@ -8,7 +8,7 @@ function [P, img] = landmark(img, detector)
 
     mouth = getMouth(img, bbox);
     widthMargin = 0.2;
-    heightMargin = 0.3;
+    heightMargin = 0.35;
     [leftEye, rightEye] = getEyes(img, bbox, widthMargin, heightMargin);
 
     leftMask = edges(leftEye, 0, 'canny');
