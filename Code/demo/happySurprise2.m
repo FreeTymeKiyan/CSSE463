@@ -36,7 +36,7 @@ figure(1);
 %     text(P1(1, 2:end)+1, P1(2, 2:end)+1, comps(2:end,:), 'color', 'r', 'FontSize', 12);
 %     rectangle('Position', box1, 'LineWidth', 2, 'EdgeColor', 'r');
 
-imshow(stdImg, [], 'Border', 'tight'); hold on;
+imshow(stdImg, [], 'Border', 'tight');
 
 figure(2);
 
@@ -49,17 +49,17 @@ figure(2);
 %     text(P2(1, 2:end)+1, P2(2, 2:end)+1, comps(2:end,:), 'color', 'r', 'FontSize', 12);
 %     rectangle('Position', box1, 'LineWidth', 2, 'EdgeColor', 'r');
 
-imshow(emotionImg, [], 'Border', 'tight'); hold on;
+imshow(emotionImg, [], 'Border', 'tight');
 
 motion = P2 - P1;
 motion = motion(:);
 %   feed it into classifier
 result = nearestMean3(motion);
 %   output emotion
-if result == 1
+if result == 3
     fprintf('happy\n');
-elseif result == 3
+elseif result == 1
     fprintf('surprise\n');
 else 
-    fprintf('else\n');
+    fprintf('neutral\n');
 end

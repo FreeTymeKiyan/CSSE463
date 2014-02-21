@@ -1,7 +1,7 @@
 function result = nearestMean3(motionVector)
-    happy = load('happyFeatures2.mat');
+    happy = load('happyFeatures3.mat');
     happy = happy.happy;
-    surprise = load('surpriseFeatures2.mat');
+    surprise = load('surpriseFeatures3.mat');
     surprise = surprise.surprise;
     mean1 = mean(happy, 2);
     mean2 = zeros(12, 1); 

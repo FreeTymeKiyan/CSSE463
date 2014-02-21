@@ -1,4 +1,4 @@
-function [] = HappySurprise(name1, name2)
+function [] = happySurprise(name1, name2)
 
 addpath('./library/mex/');
 addpath('./library/finalLandmarksIsh/');
@@ -36,10 +36,10 @@ for i = 1 : size(stdBbox, 1)
     P1 = flandmark_detector(stdGray, int32(stdBbox(i, :)),  model);
     % show landmarks 
     comps = ['S0'; 'S1'; 'S2'; 'S3'; 'S4'; 'S5'; 'S6'; 'S7'];
-    plot(P1(1, 1), P1(2, 1), 'bs', 'LineWidth', 1, 'MarkerSize', 5, 'MarkerFaceColor', 'b');
-    text(P1(1, 1)+1, P1(2, 1)+1, comps(1,:), 'color', 'b', 'FontSize', 12);
-    plot(P1(1, 2:end), P1(2, 2:end), 'rs', 'LineWidth', 1, 'MarkerSize', 5, 'MarkerFaceColor', 'r');
-    text(P1(1, 2:end)+1, P1(2, 2:end)+1, comps(2:end,:), 'color', 'r', 'FontSize', 12);
+%     plot(P1(1, 1), P1(2, 1), 'bs', 'LineWidth', 1, 'MarkerSize', 5, 'MarkerFaceColor', 'b');
+%     text(P1(1, 1)+1, P1(2, 1)+1, comps(1,:), 'color', 'b', 'FontSize', 12);
+    plot(P1(1, 2:end - 1), P1(2, 2:end - 1), 'rs', 'LineWidth', 1, 'MarkerSize', 5, 'MarkerFaceColor', 'r');
+%     text(P1(1, 2:end)+1, P1(2, 2:end)+1, comps(2:end,:), 'color', 'r', 'FontSize', 12);
     rectangle('Position', box1, 'LineWidth', 2, 'EdgeColor', 'r');
 end
 
@@ -49,10 +49,10 @@ for j = 1 : size(emotionBbox, 1)
     P2 = flandmark_detector(emotionGray, int32(emotionBbox(j, :)),  model);
     % show landmarks 
     comps = ['S0'; 'S1'; 'S2'; 'S3'; 'S4'; 'S5'; 'S6'; 'S7'];
-    plot(P2(1, 1), P2(2, 1), 'bs', 'LineWidth', 1, 'MarkerSize', 5, 'MarkerFaceColor', 'b');
-    text(P2(1, 1)+1, P2(2, 1)+1, comps(1,:), 'color', 'b', 'FontSize', 12);
-    plot(P2(1, 2:end), P2(2, 2:end), 'rs', 'LineWidth', 1, 'MarkerSize', 5, 'MarkerFaceColor', 'r');
-    text(P2(1, 2:end)+1, P2(2, 2:end)+1, comps(2:end,:), 'color', 'r', 'FontSize', 12);
+%     plot(P2(1, 1), P2(2, 1), 'bs', 'LineWidth', 1, 'MarkerSize', 5, 'MarkerFaceColor', 'b');
+%     text(P2(1, 1)+1, P2(2, 1)+1, comps(1,:), 'color', 'b', 'FontSize', 12);
+    plot(P2(1, 2:end - 1), P2(2, 2:end - 1), 'rs', 'LineWidth', 1, 'MarkerSize', 5, 'MarkerFaceColor', 'r');
+%     text(P2(1, 2:end)+1, P2(2, 2:end)+1, comps(2:end,:), 'color', 'r', 'FontSize', 12);
     rectangle('Position', box1, 'LineWidth', 2, 'EdgeColor', 'r');
 end
 
