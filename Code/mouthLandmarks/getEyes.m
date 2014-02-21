@@ -1,28 +1,22 @@
-function eyes = getEyes( img,bbox )
-%UNTITLED Summary of this function goes here
-%   Detailed explanation goes here
-    topLeft = [bbox(:,13) bbox(:,14)];
-    topRight = [bbox(:,13)+bbox(:,15) bbox(:,14)];
-    bottomLeft = [bbox(:,13) bbox(:,14)+bbox(:,16)];
-    bottomRight = [bbox(:,13)+bbox(:,15) bbox(:,14)+bbox(:,16)];
+function [l, r] = getEyes( img,bbox, widthMargin, heightMargin)
     
-   % bbox(:, 5: 8) is bounding box for left eye
-   % bbox(:, 9:12) is bounding box for right eye
+    leftWidth = bbox(:,7);
+    x1 = bbox(:,5) + leftWidth * widthMargin;
+    x2 = bbox(:,5) + leftWidth * (1 - widthMargin);
     
-    x1 = bbox(:,5);
-    x2 = bbox(:,9)+bbox(:,11);
+    leftHeight = bbox(:,8);
+    y1 = bbox(:,6) + leftHeight * heightMargin;
+    y2 = bbox(:,6) + leftHeight * (1 - heightMargin);
+    l = img(y1:y2,x1:x2,:);
     
-    if bbox(:,6) < bbox(:,10)
-        y1 = bbox(:,6);
-    else
-        y1 = bbox(:,10);
-    end
-    if (bbox(:,6) + bbox(:,8)) > (bbox(:,10) + bbox(:,12)) 
-        y2 = (bbox(:,6) + bbox(:,8));
-    else        
-        y2 = (bbox(:,10) + bbox(:,12));
-    end    
-    eyes = img(y1:y2,x1:x2,:);
+    rightWidth = bbox(:,11);
+    x1 = bbox(:,9) + rightWidth * widthMargin;
+    x2 = bbox(:,9) + rightWidth * (1 - widthMargin);
+    
+    rightHeight = bbox(:,12);
+    y1 = bbox(:,10) + rightHeight * heightMargin;
+    y2 = bbox(:,10) + rightHeight * (1 - heightMargin);
+    r = img(y1:y2,x1:x2,:);
 
 end
 

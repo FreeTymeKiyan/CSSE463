@@ -32,7 +32,7 @@ function [means image] = kmean( img, k )
         end
     end
     image = img;    
-    imtool(image);
-    edges(image);
+    %imtool(image);
+    %edges(image);
 end
 
