@@ -39,7 +39,7 @@ for i = 1 : size(stdBbox, 1)
 %     plot(P1(1, 1), P1(2, 1), 'bs', 'LineWidth', 1, 'MarkerSize', 5, 'MarkerFaceColor', 'b');
 %     text(P1(1, 1)+1, P1(2, 1)+1, comps(1,:), 'color', 'b', 'FontSize', 12);
     plot(P1(1, 2:end - 1), P1(2, 2:end - 1), 'rs', 'LineWidth', 1, 'MarkerSize', 5, 'MarkerFaceColor', 'r');
-%     text(P1(1, 2:end)+1, P1(2, 2:end)+1, comps(2:end,:), 'color', 'r', 'FontSize', 12);
+    text(P1(1, 2:end)+1, P1(2, 2:end)+1, comps(2:end,:), 'color', 'r', 'FontSize', 12);
     rectangle('Position', box1, 'LineWidth', 2, 'EdgeColor', 'r');
 end
 
@@ -52,7 +52,7 @@ for j = 1 : size(emotionBbox, 1)
 %     plot(P2(1, 1), P2(2, 1), 'bs', 'LineWidth', 1, 'MarkerSize', 5, 'MarkerFaceColor', 'b');
 %     text(P2(1, 1)+1, P2(2, 1)+1, comps(1,:), 'color', 'b', 'FontSize', 12);
     plot(P2(1, 2:end - 1), P2(2, 2:end - 1), 'rs', 'LineWidth', 1, 'MarkerSize', 5, 'MarkerFaceColor', 'r');
-%     text(P2(1, 2:end)+1, P2(2, 2:end)+1, comps(2:end,:), 'color', 'r', 'FontSize', 12);
+    text(P2(1, 2:end)+1, P2(2, 2:end)+1, comps(2:end,:), 'color', 'r', 'FontSize', 12);
     rectangle('Position', box1, 'LineWidth', 2, 'EdgeColor', 'r');
 end
 

@@ -54,11 +54,11 @@ imshow(emotionImg, [], 'Border', 'tight');
 motion = P2 - P1;
 motion = motion(:);
 %   feed it into classifier
-result = nearestMean3(motion);
+result = nearestMean4(motion);
 %   output emotion
-if result == 3
+if result == 1
     fprintf('happy\n');
-elseif result == 1
+elseif result == 2
     fprintf('surprise\n');
 else 
     fprintf('neutral\n');

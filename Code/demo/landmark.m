@@ -25,7 +25,7 @@ function [P, img] = landmark(img, detector)
     
     [P, test] = setLandmarks(P, mask, test, bbox(1,13), bbox(1,14));
     
-    P(1, :) = P(1, :) ./ bbox(1, 3);
-    P(2, :) = P(2, :) ./ bbox(1, 4);
+    P(1, :) = P(1, :) ./ bbox(1, 4);
+    P(2, :) = P(2, :) ./ bbox(1, 3);
     img = test;
 end
