@@ -1,5 +1,5 @@
 addpath('./library/mex');
-addpath('./library/faceDetector');
+addpath('./library/finalLandmarksIsh');
 
 d = dir('./testImgs/happy/');
 M = zeros(16, 1);
@@ -9,7 +9,7 @@ model = flandmark_load_model('./library/mex/flandmark_model.dat');
 
 stdP = [];
 
-for i = 4 : 2 : size(d, 1) - 1
+for i = 3 : 2 : size(d, 1) - 1
     fileName1 = [pwd '/testImgs/happy/' d(i, 1).name];
     stdImg = imread(fileName1);
     stdP = landmarkDetection(stdImg, detector, model);
