@@ -1,13 +1,13 @@
 addpath('./library/finalLandmarksIsh');
-
 d = dir('./testImgs/happy/');
+
 M = zeros(12, 1);
 index = 1;
 detector = buildDetector();
 
 stdP = [];
 
-for i = 3 : 2 : size(d, 1) - 1
+for i = 4 : 2 : size(d, 1) - 1
     fileName1 = [pwd '/testImgs/happy/' d(i, 1).name];
     stdImg = imread(fileName1);
     stdP = landmark(stdImg, detector);
